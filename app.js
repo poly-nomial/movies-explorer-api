@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config();
 const { celebrate, Joi, errors } = require("celebrate");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -8,7 +9,7 @@ const auth = require("./middlewares/auth");
 const userRouter = require("./routes/users");
 const movieRouter = require("./routes/movies");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
-const { SERVER_ERROR } = require("./utils/constants");
+const { SERVER_ERROR, DEFAULT_ALLOWED_METHODS } = require("./utils/constants");
 
 const PORT = 3000; // импортировать в .env
 
@@ -17,6 +18,19 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(requestLogger);
+
+app.use((req, res, next) => {
+  const { method } = req;
+  const requestHeaders = req.headers["access-control-request-headers"];
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", "polybitfilms.nomoredomains.rocks");
+  if (method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", DEFAULT_ALLOWED_METHODS);
+    res.header("Access-Control-Allow-Headers", requestHeaders);
+    return res.end();
+  }
+  next();
+});
 
 app.use(
   "/signup",
