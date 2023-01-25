@@ -1,0 +1,40 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "Дипломный проект по специальности Веб-разработчик",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poly-nomial/movies-explorer-api.git"
+  },
+  "keywords": [
+    "movies",
+    "search"
+  ],
+  "author": "Lina Belitova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poly-nomial/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/poly-nomial/movies-explorer-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "celebrate": "^15.0.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.32.0",
+    "express": "^4.18.2",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4",
+    "nodemon": "^2.0.20",
+    "winston": "^3.8.2"
+  }
+}
