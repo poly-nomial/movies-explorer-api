@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const NotFoundError = require("../errors/NotFoundError");
-const InputError = require("../errors/InputError");
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const validator = require('validator');
+const NotFoundError = require('../errors/NotFoundError');
+const InputError = require('../errors/InputError');
 const {
   NOT_FOUND_ERROR_MESSAGE,
   INPUT_ERROR_MESSAGE,
-} = require("../utils/constants");
-const validator = require("validator");
+} = require('../utils/constants');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email })
-    .select("+password")
+    .select('+password')
     .then((user) => {
       if (!user) {
         return Promise.reject(new NotFoundError(NOT_FOUND_ERROR_MESSAGE));
@@ -49,6 +49,6 @@ userSchema.statics.findUserByCredentials = function (email, password) {
     });
 };
 
-const userModel = mongoose.model("user", userSchema);
+const userModel = mongoose.model('user', userSchema);
 
 module.exports = userModel;

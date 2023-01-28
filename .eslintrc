@@ -7,6 +7,12 @@
         "allow": ["_id"]
       }
     ],
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "none"
+        }
+      ]
 }
 }
