@@ -6,6 +6,7 @@
       {
         "allow": ["_id"]
       }
-    ]
+    ],
+    "consistent-return": "off"
 }
 }
