@@ -1,4 +1,4 @@
 # Бекэнд дипломного проекта Movies Explorer
 
-* IP: 158.160.51.84
+* IP: 51.250.87.80
 * Адрес: http://api.polybitfilms.nomoredomains.rocks/
