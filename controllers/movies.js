@@ -1,12 +1,12 @@
-const Movie = require("../models/movie");
-const NotFoundError = require("../errors/NotFoundError");
-const InputError = require("../errors/InputError");
-const ForbiddenError = require("../errors/ForbiddenError");
+const Movie = require('../models/movie');
+const NotFoundError = require('../errors/NotFoundError');
+const InputError = require('../errors/InputError');
+const ForbiddenError = require('../errors/ForbiddenError');
 const {
   NOT_FOUND_ERROR_MESSAGE,
   INPUT_ERROR_MESSAGE,
   FORBIDDEN_ERROR_MESSAGE,
-} = require("../utils/constants");
+} = require('../utils/constants');
 
 module.exports.getSavedMovies = (req, res, next) => {
   Movie.find({ owner: req.user._id })
@@ -52,7 +52,7 @@ module.exports.createMovie = (req, res, next) => {
   })
     .then((movie) => res.status(200).send({ data: movie }))
     .catch((err) => {
-      if (err.name === "ValidationError") {
+      if (err.name === 'ValidationError') {
         next(new InputError(INPUT_ERROR_MESSAGE));
       } else {
         next(err);
@@ -70,14 +70,14 @@ module.exports.deleteMovie = (req, res, next) => {
       } else {
         movie
           .remove()
-          .then(() => res.status(200).send({ message: "Фильм удален" }))
+          .then(() => res.status(200).send({ message: 'Фильм удален' }))
           .catch((err) => {
             next(err);
           });
       }
     })
     .catch((err) => {
-      if (err.name === "CastError") {
+      if (err.name === 'CastError') {
         next(new InputError(INPUT_ERROR_MESSAGE));
       } else {
         next(err);

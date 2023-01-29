@@ -12,7 +12,7 @@ const CONFLICT_ERROR = 409;
 const CONFLICT_ERROR_MESSAGE = 'Пользователь с таким адресом уже существует';
 const FORBIDDEN_ERROR = 403;
 const FORBIDDEN_ERROR_MESSAGE = 'Нет прав на удаление фильма';
-const NOT_URL_ERROR = 'не является ссылкой'ж
+const NOT_URL_ERROR = 'не является ссылкой';
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 const URL_REGEX = /^https?:\/\/(www\.)?[\w\-._~:/?#[\]@!$&'()*+,;=]+$/;
 
@@ -33,5 +33,5 @@ module.exports = {
   ID_REGEX,
   DEFAULT_ALLOWED_METHODS,
   URL_REGEX,
-  NOT_URL_ERROR
+  NOT_URL_ERROR,
 };
