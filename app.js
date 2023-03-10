@@ -31,6 +31,8 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Origin', 'https://polybitfilms.nomoredomains.rocks');
   if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', 'https://polybitfilms.nomoredomains.rocks');
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
     return res.end();
